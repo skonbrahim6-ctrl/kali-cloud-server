@@ -1,0 +1,14 @@
+name: KaliCloud
+on: push
+jobs:
+  kali-system:
+    runs-on: ubuntu-latest
+    container:
+      image: kalilinux/kali-rolling:latest
+    steps:
+      - name: System Takeover
+        run: |
+          apt-get update
+          apt-get install -y nmap metasploit-framework
+          echo "The server is now running Kali Linux!"
+          nmap --version
